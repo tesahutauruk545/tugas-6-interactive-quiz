@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TesaQuiz - Interactive Quiz</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Link ke CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+  <canvas id="confetti"></canvas>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="logo">⚡ TESAQUIZ</div>
+    <button class="theme-toggle" id="themeToggle" title="Ganti tema">🌙</button>
+  </header>
+
+  <main class="app">
+    
+    <!-- SCREEN 1: START -->
+    <section class="screen active" id="startScreen">
+      <div class="start-card">
+        <h1>Interactive Quiz</h1>
+        <p>Uji pengetahuanmu dengan 5 pertanyaan seru!<br>Jawab cepat, raih skor tertinggi 🏆</p>
+        <div class="high-score-badge" id="highScoreBadge">
+          <span class="trophy"></span>
+          <span>Skor Tertinggi: <strong id="highScoreValue">0</strong></span>
+        </div>
+        <br>
+        <button class="btn-primary" id="startBtn"><span>MULAI KUIS </span></button>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: QUIZ -->
+    <section class="screen" id="quizScreen">
+      <div class="quiz-header">
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="question-counter" id="questionCounter">1 / 5</div>
+      </div>
+
+      <div class="timer-wrap">
+        <div class="timer-circle">
+          <svg width="70" height="70">
+            <circle class="timer-bg" cx="35" cy="35" r="30"></circle>
+            <circle class="timer-fg" id="timerCircle" cx="35" cy="35" r="30"
+                    stroke-dasharray="188.5" stroke-dashoffset="0"></circle>
+          </svg>
+          <div class="timer-text" id="timerText">15</div>
+        </div>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <div class="category-tag" id="categoryTag">KATEGORI</div>
+        <div class="question-text" id="questionText"></div>
+      </div>
+
+      <div class="options" id="optionsContainer"></div>
+    </section>
+
+    <!-- SCREEN 3: RESULT -->
+    <section class="screen" id="resultScreen">
+      <div class="result-card">
+        <div class="result-emoji" id="resultEmoji"></div>
+        <div class="result-title" id="resultTitle">Kuis Selesai!</div>
+        <div class="result-subtitle" id="resultSubtitle">Kerja bagus!</div>
+
+        <div class="score-display">
+          <div class="score-box">
+            <div class="label">Skor Kamu</div>
+            <div class="value" id="finalScore">0</div>
+          </div>
+          <div class="score-box">
+            <div class="label">Tertinggi</div>
+            <div class="value" id="finalHigh">0</div>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-primary" id="restartBtn"><span>MAIN LAGI </span></button>
+          <button class="btn-secondary" id="homeBtn">🏠 Menu Utama</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Link ke JavaScript (defer agar DOM siap dulu) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
